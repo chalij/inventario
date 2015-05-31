@@ -48,6 +48,46 @@
         </h:form>
         <br />
         <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+
+
+        <h:form id="formInsertar">
+            <p:panelGrid columns="2">
+
+                <p:outputLabel value="ID"/>
+                <p:inputText value="#{TipoUsuarioBean.tipoUsuario.idTipoUsuario}" />
+
+                <p:outputLabel value="Tipo Usuario"/>
+                <p:inputText value="#{TipoUsuarioBean.tipoUsuario.nombre}" />
+
+                <p:outputLabel value="Descripcion"/>
+                <p:inputText value="#{TipoUsuarioBean.tipoUsuario.descripcion}" />
+
+            </p:panelGrid>
+            <p:commandButton actionListener="#{TipoUsuarioBean.insertar()}" value="Ingresar Tipo Usuario" update=":formMostrar"/>
+        </h:form>
+        <!-- DATATABLE-->
+        <h:form id="formMostrar">
+            <p:dataTable var="tip" value="#{TipoUsuarioBean.tipoUsuario}"
+                         emptyMessage="No hay personas disponibless"
+                         paginator="true" rows="10" paginatorPosition="top"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink}
+                         {PageLinks} {NextPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="10"
+                         >
+                <p:column headerText="Id Tipo Usuario">
+                    <h:outputText value="#{tip.idTipoUsuario}"/>
+                </p:column>
+                <p:column headerText="Tipo Usuario">
+                    <h:outputText value="#{tip.nombre}"/>
+                </p:column>
+                <p:column headerText="Descripcion">
+                    <h:outputText value="#{tip.descripcion}"/>
+                </p:column>
+
+
+            </p:dataTable>
+
+        </h:form>
     </h:body>
 </html>
 

@@ -17,7 +17,7 @@ import org.hibernate.Session;
  *
  * @author Administrador
  */
-public class TipoUsuarioDaoImplent implements TipoUsuarioDao {
+public class TipoUsuarioDaoImplement implements TipoUsuarioDao {
 
     @Override
     public List<TipoUsuario> mostrarTipoUsuario() {
